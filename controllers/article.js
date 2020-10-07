@@ -208,12 +208,13 @@ var controller = {
 		}
 
 		var file_path = req.files.file0.path;
-		var file_split = file_path.split('\\');
+		var file_split = file_path.split('//');
 		var file_name = file_split[2];
 
 		return res.status(200).send({
 			status : "Success",
-			file_name : file_name
+			file_name : file_name,
+			file_split
 		})
 		
 
