@@ -214,7 +214,7 @@ var controller = {
 		return res.status(200).send({
 			status : "Success",
 			file_name : file_name,
-			file_split
+			file_split : file_split
 		})
 		
 
