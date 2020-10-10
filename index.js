@@ -8,8 +8,8 @@ var fs = require('fs');
 var app = require('./app');
 var port = 3900;
 var sec_port = 8443;
-var privateKey = fs.readFileSync('vanlifers.key', 'utf-8');
-var cert = fs.readFileSync('vanlifers.crt', 'utf-8');
+var privateKey = fs.readFileSync('/etc/letsencrypt/live/backend.vanlifers.es/fullchain.pem', 'utf-8');
+var cert = fs.readFileSync('/etc/letsencrypt/live/backend.vanlifers.es/privkey.pem', 'utf-8');
 
 var creds = {key : privateKey, cert : cert}
 
