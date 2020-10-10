@@ -34,6 +34,8 @@ app.use((req, res, next) => {
 })
 var httpsServer = https.createServer(app);
 
+httpsServer.listen(8443);
+
 //app.use(bodyParser.urlencoded({extended:false}));
 
 
