@@ -21,10 +21,11 @@ mongoose.connect('mongodb://localhost:27017/api_rest_blog', {useNewUrlParser : t
 
 			// Crear server y escuchar requests //
 			app.listen(port, () => {
-				console.log('Server corriendo en ' + port)
-			})
-			httpsServer.listen(sec_port);
-			var httpsServer = https.createServer(creds, app, () => {
-				console.log("Server corriendo en puerto " + port);
+				console.log('Server corriendo en ' + port);
+			});
+			var httpsServer = https.createServer(creds, app);
+
+			httpsServer.listen(sec_port, () => {
+				console.log('HTTPS corriendo en puerto ' + sec_port);
 			});
 		});
