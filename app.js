@@ -1,8 +1,15 @@
 'use strict'
 
 // Cargar modulos de node para crear el servidor
+var fs = require('fs');
 var express = require('express');
 var bodyParser = require('body-parser');
+var https = require('https');
+
+var privateKey = fs.readFileSync('vanlifers.key', 'utf-8');
+var cert = fs.readFileSync('vanlifers.crt', 'utf-8');
+
+var creds = {key : privateKey, cert : cert}
 
 // Ejecutar express
 var app = express();
@@ -25,6 +32,7 @@ app.use((req, res, next) => {
     }
     return next();
 })
+var httpsServer = https.createServer(app);
 
 //app.use(bodyParser.urlencoded({extended:false}));
 
